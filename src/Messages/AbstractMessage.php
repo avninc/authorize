@@ -40,6 +40,7 @@ abstract class AbstractMessage implements MessageContract
     protected $customerIp = null;
     protected $userFields = null;
     protected $refTransId = null;
+    protected $merchantDescriptor = null;
 
     protected static $fieldsSort = [
         'name' => -2,
@@ -92,6 +93,9 @@ abstract class AbstractMessage implements MessageContract
         'country' => -2,
         'phoneNumber' => -1,
         'faxNumber' => 0,
+
+        'merchantDescriptor' => 100,
+        'tip' => 200,
 
     ];
 
@@ -483,6 +487,27 @@ abstract class AbstractMessage implements MessageContract
     {
         $this->order = $order->data();
         $this->data['order'] = $order->data();
+
+        return $this;
+    }
+
+    /**
+     * Get the value of merchantDescriptor
+     */ 
+    public function getMerchantDescriptor()
+    {
+        return $this->merchantDescriptor;
+    }
+
+    /**
+     * Set the value of merchantDescriptor
+     *
+     * @return  self
+     */ 
+    public function setMerchantDescriptor($merchantDescriptor)
+    {
+        $this->merchantDescriptor = $merchantDescriptor;
+        $this->data['merchantDescriptor'] = $merchantDescriptor;
 
         return $this;
     }
