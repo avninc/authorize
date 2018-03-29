@@ -58,7 +58,7 @@ class Response
     {
         $response = data_get($this->data, 'profileResponse');
         if($response) {
-            return new GuzzleResponse(200, ['Content-Type' => 'application/json'], json_encode($response));
+            return new Response(new GuzzleResponse(200, ['Content-Type' => 'application/json'], json_encode($response)));
         }
         
         return null;
