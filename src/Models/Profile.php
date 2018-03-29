@@ -16,6 +16,7 @@ class Profile extends AbstractModel
     protected $email = null;
     protected $paymentProfile = null;
     protected $paymentProfiles = null;
+    protected $createProfile = null;
 
     public function attributeName() : string
     {
@@ -26,7 +27,7 @@ class Profile extends AbstractModel
     {
         $data = $this->data;
 
-        $fields = ['merchantCustomerId', 'customerProfileId', 'description', 'email', 'paymentProfile', 'paymentProfiles'];
+        $fields = ['merchantCustomerId', 'customerProfileId', 'createProfile', 'description', 'email', 'paymentProfile', 'paymentProfiles'];
 
         foreach($fields as $key) {
             if($this->{$key} !== null) {
@@ -159,6 +160,27 @@ class Profile extends AbstractModel
     {
         $this->paymentProfile = $paymentProfile->data();
         $this->data['paymentProfile'] = $paymentProfile->data();
+
+        return $this;
+    }
+
+    /**
+     * Get the value of createProfile
+     */ 
+    public function getCreateProfile()
+    {
+        return $this->createProfile;
+    }
+
+    /**
+     * Set the value of createProfile
+     *
+     * @return  self
+     */ 
+    public function setCreateProfile($createProfile)
+    {
+        $this->createProfile = $createProfile;
+        $this->data['createProfile'] = $createProfile;
 
         return $this;
     }
