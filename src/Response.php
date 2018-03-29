@@ -86,12 +86,12 @@ class Response
 
     public function transactionErrorCode()
     {
-        return data_get($this->transactionError(), 'errorsCode');
+        return data_get($this->transactionError(), 'errorCode');
     }
 
     public function transactionErrorText()
     {
-        return data_get($this->transactionError(), 'errorsText');
+        return data_get($this->transactionError(), 'errorText');
     }
 
     public function avsResultCode()
