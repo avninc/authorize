@@ -53,12 +53,14 @@ abstract class AbstractMessage implements MessageContract
         'duty' => 5,
         'shipping' => 6,
         'poNumber' => 7,
-        'customer' => 8,
-        'billTo' => 9,
-        'shipTo' => 10,
-        'customerIP' => 11,
-        'userFields' => 12,
-        'refTransId' => 13,
+        'profile' => 8,
+        'customer' => 9,
+        'order' => 10,
+        'billTo' => 11,
+        'shipTo' => 12,
+        'customerIP' => 13,
+        'userFields' => 14,
+        'refTransId' => 15,
 
         'merchantCustomerId' => -3,
         'description' => -1,
@@ -78,9 +80,6 @@ abstract class AbstractMessage implements MessageContract
         'type' => -3,
         'id' => -2,
 
-        'profile' => 14,
-        'order' => 15,
-        'customer' => 16,
     ];
 
     public function __construct(array $data = [])
