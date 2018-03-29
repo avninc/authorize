@@ -58,7 +58,7 @@ class Response
     {
         $response = data_get($this->data, 'profileResponse');
         if($response) {
-            return new Response($response);
+            return new GuzzleResponse(200, [], $response);
         }
         
         return null;
