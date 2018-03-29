@@ -9,4 +9,4 @@
  */
 
 $loader = require __DIR__ . '/../vendor/autoload.php';
-$loader->addPsr4('Fixture\\', 'test/Fixture');
+$loader->addPsr4('Test\\', 'tests/');

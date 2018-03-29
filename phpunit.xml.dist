@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit 
-    bootstrap="test/bootstrap.php"
-    colors="false"
+    bootstrap="tests/bootstrap.php"
+    colors="true"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
@@ -10,8 +10,8 @@
     verbose="true">
     
     <testsuites>
-        <testsuite name="all">
-            <directory>test/</directory>
+        <testsuite name="Unit Tests">
+            <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
     </testsuites>
     
@@ -24,5 +24,8 @@
             </exclude>
         </whitelist>
     </filter>
-    
+    <php>
+        <env name="LOGIN_ID" value="xxx"/>
+        <env name="TRANS_KEY" value="xxx"/>
+    </php>
 </phpunit>
