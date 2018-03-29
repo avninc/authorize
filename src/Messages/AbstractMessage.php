@@ -82,6 +82,17 @@ abstract class AbstractMessage implements MessageContract
 
         'invoiceNumber' => -2,
 
+        'firstName' => -9,
+        'lastName' => -8,
+        'company' => -7,
+        'address' => -6,
+        'city' => -5,
+        'state' => -4,
+        'zip' => -3,
+        'country' => -2,
+        'phoneNumber' => -1,
+        'faxNumber' => 0,
+
     ];
 
     public function __construct(array $data = [])
