@@ -74,6 +74,26 @@ class Response
         return data_get($this->transaction(), 'authCode');
     }
 
+    public function transactionErrors()
+    {
+        return data_get($this->transaction(), 'errors');
+    }
+
+    public function transactionError()
+    {
+        return data_get($this->transaction(), 'errors.0');
+    }
+
+    public function transactionErrorCode()
+    {
+        return data_get($this->transactionError(), 'errorsCode');
+    }
+
+    public function transactionErrorText()
+    {
+        return data_get($this->transactionError(), 'errorsText');
+    }
+
     public function avsResultCode()
     {
         return data_get($this->transaction(), 'avsResultCode');
