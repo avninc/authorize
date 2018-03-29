@@ -54,6 +54,16 @@ class Response
         return data_get($this->data, 'transactionResponse');
     }
 
+    public function profileResponse()
+    {
+        $response = data_get($this->data, 'profileResponse');
+        if($response) {
+            return new Response($response);
+        }
+        
+        return null;
+    }
+
     public function responseCode()
     {
         return data_get($this->transaction(), 'responseCode');
