@@ -9,6 +9,7 @@ use AVN\Authorize\Models\ShipTo;
 use AVN\Authorize\Models\Shipping;
 use AVN\Authorize\Models\Payment;
 use AVN\Authorize\Models\Profile;
+use AVN\Authorize\Models\Order;
 use AVN\Authorize\Models\Customer;
 use AVN\Authorize\Models\LineItems;
 use AVN\Authorize\Contracts\MessageContract;
@@ -27,6 +28,7 @@ abstract class AbstractMessage implements MessageContract
     protected $amount = null;
     protected $payment = null;
     protected $profile = null;
+    protected $order = null;
     protected $lineItems = null;
     protected $tax = null;
     protected $duty = null;
@@ -77,7 +79,8 @@ abstract class AbstractMessage implements MessageContract
         'id' => -2,
 
         'profile' => 14,
-        'customer' => 15,
+        'order' => 15,
+        'customer' => 16,
     ];
 
     public function __construct(array $data = [])
@@ -447,6 +450,27 @@ abstract class AbstractMessage implements MessageContract
     {
         $this->profile = $profile->data();
         $this->data['profile'] = $profile->data();
+
+        return $this;
+    }
+
+    /**
+     * Get the value of order
+     */ 
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set the value of order
+     *
+     * @return  self
+     */ 
+    public function setOrder(Order $order)
+    {
+        $this->order = $order->data();
+        $this->data['order'] = $order->data();
 
         return $this;
     }

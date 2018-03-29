@@ -45,6 +45,7 @@ class Order extends AbstractModel
     public function setInvoiceNumber($invoiceNumber)
     {
         $this->invoiceNumber = $invoiceNumber;
+        $this->data['invoiceNumber'] = $invoiceNumber;
 
         return $this;
     }
@@ -65,6 +66,7 @@ class Order extends AbstractModel
     public function setDescription($description)
     {
         $this->description = $description;
+        $this->data['description'] = $description;
 
         return $this;
     }
