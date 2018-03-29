@@ -73,7 +73,8 @@ abstract class AbstractMessage implements MessageContract
         'quantity' => 20,
         'unitPrice' => 21,
 
-
+        'type' => -3,
+        'id' => -2,
     ];
 
     public function __construct(array $data = [])
