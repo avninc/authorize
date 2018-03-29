@@ -22,7 +22,7 @@ class Customer extends AbstractModel
     {
         $data = $this->data;
 
-        $fields = ['type', 'id', 'email'];
+        $fields = ['email', 'id', 'type'];
 
         foreach($fields as $key) {
             if($this->{$key} !== null) {
