@@ -70,6 +70,7 @@ abstract class AbstractMessage implements MessageContract
 
         'customerType' => 0,
 
+        'paymentProfileId' => -1,
         'cardNumber' => 0,
         'expirationDate' => 1,
         'cardCode' => 2,
