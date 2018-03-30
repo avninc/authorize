@@ -2,12 +2,13 @@
 
 namespace AVN\Authorize\Models;
 
+use stdClassObject;
 use AVN\Authorize\Models\LineItem;
 use AVN\Authorize\Models\AbstractModel;
 
 class LineItems extends AbstractModel
 {
-    protected $items = null;
+    protected $lineItems = null;
 
     public function attributeName() : string
     {
@@ -16,21 +17,28 @@ class LineItems extends AbstractModel
 
     public function data()
     {
-        $data = $this->data;
+        $data = $this->lineItems;
 
-        if($this->items) {
-            $data = $this->items;
+        if(isset($data['lineItems'])) {
+            $data = $data['lineItems'];
+        }
+        
+        $list = [];
+        if($data && count($data)) {
+            foreach($data as $i => $item) {
+                $list['lineItem'] = $item;
+            }
         }
 
-        return $data;
+        return $list;
     }
 
     /**
      * Get the value of items
      */ 
-    public function getItems()
+    public function getLineItems()
     {
-        return $this->items;
+        return $this->lineItems;
     }
 
     /**
@@ -38,9 +46,15 @@ class LineItems extends AbstractModel
      *
      * @return  self
      */ 
-    public function setItems(array $items)
+    public function setlineItems(array $items)
     {
-        $this->items = $items;
+        foreach($items as $item) {
+            if(is_array($item)) {
+                $item = new LineItem($item);
+            }
+
+            $this->addLineItem($item);
+        }
 
         return $this;
     }
@@ -50,9 +64,10 @@ class LineItems extends AbstractModel
      *
      * @return  self
      */ 
-    public function addItem(LineItem $item)
+    public function addLineItem(LineItem $item)
     {
-        $this->items[] = $item->data();
+        $this->lineItems['lineItems'][] = $item->data();
+        $this->data['lineItems'][] = $item->data();
 
         return $this;
     }

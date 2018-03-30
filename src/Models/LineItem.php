@@ -30,9 +30,7 @@ class LineItem extends AbstractModel
             }
         }
 
-        $this->setData($data);
-
-        return parent::data();
+        return $data;
     }
 
     /**
@@ -51,6 +49,7 @@ class LineItem extends AbstractModel
     public function setItemId($itemId)
     {
         $this->itemId = $itemId;
+        $this->data['itemId'] = $itemId;
 
         return $this;
     }
@@ -71,6 +70,7 @@ class LineItem extends AbstractModel
     public function setName($name)
     {
         $this->name = $name;
+        $this->data['name'] = $name;
 
         return $this;
     }
@@ -91,6 +91,7 @@ class LineItem extends AbstractModel
     public function setDescription($description)
     {
         $this->description = $description;
+        $this->data['description'] = $description;
 
         return $this;
     }
@@ -111,6 +112,7 @@ class LineItem extends AbstractModel
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+        $this->data['quantity'] = $quantity;
 
         return $this;
     }
@@ -131,6 +133,7 @@ class LineItem extends AbstractModel
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        $this->data['unitPrice'] = $unitPrice;
 
         return $this;
     }
@@ -151,6 +154,7 @@ class LineItem extends AbstractModel
     public function setTaxable($taxable)
     {
         $this->taxable = $taxable;
+        $this->data['taxable'] = $taxable;
 
         return $this;
     }
