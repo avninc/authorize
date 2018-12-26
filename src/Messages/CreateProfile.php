@@ -9,6 +9,17 @@ class CreateProfile extends AbstractMessage
 {
     protected $profile = null;
     protected $validationMode = null;
+    
+    protected static $fieldsSort = [
+        'name' => -2,
+        'transactionKey' => 1,
+
+        'transactionType' => 0,
+
+        'customerType' => 1,
+        'billTo' => 2,
+        'payment' => 3,
+    ];
 
     public function __construct(array $data = [])
     {
