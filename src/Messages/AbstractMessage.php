@@ -150,7 +150,7 @@ abstract class AbstractMessage implements MessageContract
         uksort($array, function($a, $b) {
             $first = static::$fieldsSort[$a] ?? 99;
             $second = static::$fieldsSort[$b] ?? 99;
-            return $first > $second;
+            return $first > $second ? 1 : 0;
         });
 
         return $array;
