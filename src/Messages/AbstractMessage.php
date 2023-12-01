@@ -403,7 +403,7 @@ abstract class AbstractMessage implements MessageContract
     public function setCustomerIp($customerIp)
     {
         $this->customerIp = $customerIp;
-        $this->data['customerIp'] = $customerIp;
+        $this->data['customerIP'] = $customerIp;
 
         return $this;
     }
